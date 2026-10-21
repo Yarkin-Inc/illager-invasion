@@ -12,7 +12,7 @@ import fuzs.illagerinvasion.common.world.level.block.MagicFireBlock;
 import fuzs.illagerinvasion.common.world.level.levelgen.structure.templatesystem.DataMarkerStructureProcessor;
 import fuzs.multiloaderdataextensions.common.api.v2.DataMapRegistrar;
 import fuzs.multiloaderdataextensions.common.api.v2.DataMapToken;
-import fuzs.puzzleslib.common.api.data.v2.AbstractDatapackRegistriesProvider;
+import fuzs.puzzleslib.common.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -141,14 +141,14 @@ public class ModRegistry {
     }
 
     public static void boostrapTrimMaterials(BootstrapContext<TrimMaterial> context) {
-        AbstractDatapackRegistriesProvider.registerTrimMaterial(context,
+        ContentRegistrationHelper.registerTrimMaterial(context,
                 PLATINUM_TRIM_MATERIAL,
-                ModItems.PLATINUM_SHEET_ITEM.value(),
-                0x527D7C);
+                0x527D7C,
+                IllagerInvasion.id("trim/platinum"));
     }
 
     public static void boostrapInstruments(BootstrapContext<Instrument> context) {
-        AbstractDatapackRegistriesProvider.registerInstrument(context,
+        ContentRegistrationHelper.registerInstrument(context,
                 REVEAL_INSTRUMENT,
                 ModSoundEvents.HORN_OF_SIGHT_SOUND_EVENT,
                 7.0F,

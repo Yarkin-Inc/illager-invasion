@@ -7,6 +7,7 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -50,16 +51,10 @@ public class ModStructures {
                         .getOrThrow(ModTags.HAS_ILLAGER_FORT_BIOME_TAG)).spawnOverrides(Map.of(MobCategory.MONSTER,
                                 new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE,
                                         WeightedList.<MobSpawnSettings.SpawnerData>builder()
-                                                .add(new MobSpawnSettings.SpawnerData(EntityTypes.PILLAGER, 1, 1), 3)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(),
-                                                        1,
-                                                        1), 3)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.BASHER_ENTITY_TYPE.value(),
-                                                        1,
-                                                        1), 1)
-                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(),
-                                                        1,
-                                                        1), 3)
+                                                .add(new MobSpawnSettings.SpawnerData(EntityTypes.PILLAGER, ConstantInt.of(1)), 3)
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.MARAUDER_ENTITY_TYPE.value(), ConstantInt.of(1)), 3)
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.BASHER_ENTITY_TYPE.value(), ConstantInt.of(1)), 1)
+                                                .add(new MobSpawnSettings.SpawnerData(ModEntityTypes.PROVOKER_ENTITY_TYPE.value(), ConstantInt.of(1)), 3)
                                                 .build())))
                         .generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES)
                         .terrainAdapation(TerrainAdjustment.BEARD_THIN)

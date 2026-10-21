@@ -30,6 +30,6 @@ public class TeleportUtil {
             z = entity.getZ() + randZ;
         }
 
-        return entity.randomTeleport(x, y, z, true);
+        return entity.randomTeleport(x, y, z, true, state -> false);
     }
 }
